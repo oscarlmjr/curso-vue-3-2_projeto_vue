@@ -7,25 +7,40 @@
     <li>JavaScript</li>
     <li>PHP</li>
     <li>Python</li>
-  </ul>
+  </ul>  
+    <button @click="showEmail">{{ textoBotao }}</button>
   <p v-show="mostrar_email">Mande uma mensagem para: {{ email }}</p>
-   <p v-if="4 > 2">Testando</p>
+  <p>Para acessar meu portfólio <a v-bind:href="meu_link" target="_blank">basta clicar aqui</a></p>
+  <Picture />
+  <p v-if="4 > 2">Testando</p>
 </div>  
 </template>
 <script>
+import Picture from './Picture'
 
 export default {
   name: 'Info',
-  // components: {
-    //   Picture
+  components: {
+      Picture
+      },
     data() {
       return { 
         esta_trabalhando: false,
-        mostrar_email: true,
-        email: 'matheus@email.com'
-        // url_portfolio: "https://www.google.com"
+        mostrar_email: false,
+        email: 'matheus@email.com',
+        meu_link: "https://www.google.com",
+        textoBotao: 'Mostrar e-mail'
+      }
+    },
+    methods: {
+      showEmail() {
+        this.mostrar_email = !this.mostrar_email
+        if(!this.mostrar_email) {
+          this.textoBotao = 'Mostrar e-mail'
+        } else {
+          this.textoBotao = 'Esconder e-mail'
+        }
       }
     }
   }
-// }
 </script>
