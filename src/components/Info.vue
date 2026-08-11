@@ -8,17 +8,24 @@
     <li>PHP</li>
     <li>Python</li>
   </ul>
-  <p v-show="mostrar_email">Mande uma mensagem para: matheus@email.com</p>
+  <p v-show="mostrar_email">Mande uma mensagem para: {{ email }}</p>
+   <p v-if="4 > 2">Testando</p>
 </div>  
 </template>
 <script>
+
 export default {
   name: 'Info',
-  data() {
-    return { 
-      esta_trabalhando: false,
-      mostrar_email: false
+  // components: {
+    //   Picture
+    data() {
+      return { 
+        esta_trabalhando: false,
+        mostrar_email: true,
+        email: 'matheus@email.com'
+        // url_portfolio: "https://www.google.com"
+      }
     }
   }
-}
+// }
 </script>
